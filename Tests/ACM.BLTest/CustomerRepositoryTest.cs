@@ -15,7 +15,7 @@ namespace ACM.BLTest
             var expected = new Customer(1)
             {
                 EmailAddress = "fbaggins@hobbiton.me",
-                FirstName = "Bilbo",
+                FirstName = "Frodo",
                 LastName = "Baggins"
             };
 
@@ -23,7 +23,10 @@ namespace ACM.BLTest
             var actual = customerRepository.Retrieve(1);
 
             /* Assert */
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected.CustomerID, actual.CustomerID);
+            Assert.AreEqual(expected.EmailAddress, actual.EmailAddress);
+            Assert.AreEqual(expected.FirstName, actual.FirstName);
+            Assert.AreEqual(expected.LastName, actual.LastName);
         }
     }
 }

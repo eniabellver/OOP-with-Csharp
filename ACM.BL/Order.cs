@@ -24,36 +24,6 @@ namespace ACM.BL
 
 
         /// <summary>
-        /// Saves the current order
-        /// </summary>
-        /// <returns></returns>
-        public bool Save()
-        {
-            // code that saves defined order data
-            return true;
-        }
-
-        ///<summary>
-        /// Retrieve one order
-        /// </summary>
-        /// <returns></returns>
-        public Order Retrieve(int orderID)
-        {
-            // code that retrieves a defined order
-            return new Order();
-        }
-
-        ///<summary>
-        /// Retrieve all orders
-        /// </summary>
-        /// <returns></returns>
-        public List<Order> Retrieve()
-        {
-            //code that retrieves all orders
-            return new List<Order>();
-        }
-
-        /// <summary>
         /// Validates order data
         /// </summary>
         /// <returns></returns>

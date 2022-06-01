@@ -11,6 +11,10 @@ namespace ACM.BL
     /// </summary>
     public class CustomerRepository
     {
+        /// <summary>
+        /// Retrieve a customer
+        /// </summary>
+        /// <returns></returns>
         public Customer Retrieve(int customerID)
         {
             // Create instance of the Customer class
