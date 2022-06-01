@@ -10,7 +10,7 @@ namespace ACM.BL
     {
 
         /* Default constructor */
-        public Customer()
+        public Customer(): this(0)
         {
             // Note: Implicit default constructors are defined automatically
             // unless there are overloaded constructors like on this class.
@@ -20,10 +20,12 @@ namespace ACM.BL
         public Customer(int customerID)
         {
             CustomerID = customerID;
+            AddressList = new List<Address>(); // <-- initialise list so it isn't null
         }
 
         public int CustomerID { get; private set; } // <-- any caller can get the ID, but only this class can set it
 
+        public List<Address> AddressList { get; set; }
 
         /* Auto implemented property syntax */
         public string FirstName { get; set; }
