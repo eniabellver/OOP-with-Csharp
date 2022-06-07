@@ -8,7 +8,7 @@ namespace ACM.BL
 {
     public class Order
     {
-        public Order() // <-- default constructor
+        public Order() : this(0) // <-- default constructor
         {
 
         }
@@ -16,10 +16,13 @@ namespace ACM.BL
         public Order(int orderID) // <-- constructor to set the ID
         {
             OrderID = orderID;
+            OrderItems = new List<OrderItem>();
         }
 
         public int OrderID { get; private set; }
-
+        public int CustomerID { get; set; }
+        public int ShippingAddressID { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
         public DateTimeOffset? OrderDate { get; set; } // <-- "DateTimeOffset" tracks date, time and timezone offset, "?" defines a nullable type
 
 
@@ -35,5 +38,7 @@ namespace ACM.BL
 
             return isValid;
         }
+
+        public override string ToString() => $"{OrderDate.Value.Date} ({OrderID})";
     }
 }

@@ -25,6 +25,8 @@ namespace ACM.BL
 
         public int CustomerID { get; private set; } // <-- any caller can get the ID, but only this class can set it
 
+        public int CustomerType { get; set; }
+
         public List<Address> AddressList { get; set; }
 
         /* Auto implemented property syntax */
@@ -81,5 +83,6 @@ namespace ACM.BL
             return isValid;
         }
 
+        public override string ToString() => FullName;
     }
 }
