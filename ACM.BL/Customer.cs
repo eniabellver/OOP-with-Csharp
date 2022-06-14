@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ACM.BL
 {
-    public class Customer
+    public class Customer : EntityBase
     {
 
         /* Default constructor */
@@ -68,12 +68,16 @@ namespace ACM.BL
 
         public static int InstanceCount { get; set; } // <-- "static" modifier denotes that the member belongs to the class itself, rather than any specific instance
 
+        public string Log() =>
+            $"{CustomerID}: {FullName} Email: {EmailAddress} Status: {EntityState.ToString()}";
+
+        public override string ToString() => FullName;
 
         /// <summary>
         /// Validates customer data
         /// </summary>
         /// <returns></returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
 
@@ -82,7 +86,5 @@ namespace ACM.BL
 
             return isValid;
         }
-
-        public override string ToString() => FullName;
     }
 }

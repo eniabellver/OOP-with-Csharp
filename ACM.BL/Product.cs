@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Acme.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,12 +21,28 @@ namespace ACM.BL
 
         public int ProductID { get; private set; }
 
-        public string ProductName { get; set; }
+        private string _productName;
+
+        public string ProductName
+        {
+            get
+            {
+                return _productName.InsertSpaces();
+            }
+            set
+            {
+                _productName = value;
+            }
+        }
+
+        public override string ToString() => ProductName;
 
         public string ProductDescription { get; set; }
 
         public decimal? CurrentPrice { get; set; } // <-- the "?" in "decimal?" defines CurrentPrice as a nullable type, it can have a value or be null
 
+        public string Log() =>
+            $"{ProductID}: {ProductName} Detail: {ProductDescription} Status: {EntityState.ToString()}";
 
         /// <summary>
         /// Validates product data
@@ -40,6 +57,5 @@ namespace ACM.BL
 
             return isValid;
         }
-        public override string ToString() => ProductName;
     }
 }
